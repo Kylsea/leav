@@ -2,12 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
-  double _sliderValue = 15.0;
+  runApp(Main());
+}
+
+class Main extends StatefulWidget {
+  @override
+  _MainState createState() => _MainState();
+}
+
+class _MainState extends State<Main> {
+  int _sliderValue = 15;
   double _billAmount = 179.42;
-  double _amount = 32.29;
-  String _percent = (_amount / _billAmount * 100).toStringAsPrecision(2);
-  runApp(
-    MaterialApp(
+
+  @override
+  Widget build(BuildContext context) {
+    String _tipDecimal = (_billAmount * (_sliderValue/100)).toStringAsFixed(2);
+    return MaterialApp(
       home: Scaffold(
         body: SafeArea(
           child: Container(
@@ -61,6 +71,7 @@ void main() {
                         width: 150.0,
                         height: 150.0,
                         child: FloatingActionButton(
+                          splashColor: Color.fromRGBO(255, 255, 255, 0),
                           child: SizedBox(
                             width: 75.0,
                             child: Icon(
@@ -101,24 +112,25 @@ void main() {
                                     inactiveTrackColor: Color(0xFFB2EDDF),
                                   ),
                                   child: Slider(
-                                    value: _sliderValue,
-                                    onChanged: (newValue) {
-                                      setState(() {});
+                                    value: _sliderValue.roundToDouble(),
+                                    onChanged: (tipAmount) {
+                                      setState(() =>
+                                          _sliderValue = tipAmount.round());
                                     },
-                                    divisions: 10,
-                                    max: 100.00,
-                                    min: 0.00,
+                                    divisions: 10000,
+                                    min: 0,
+                                    max: 100,
                                   ),
                                 ),
                               ),
                               Container(
                                 height: 20,
                                 child: Text(
-                                  '\$$_amount | $_percent%',
+                                  '\$$_tipDecimal | $_sliderValue%',
                                   style: TextStyle(
-                                      color: Color(0xFF737375),
-                                      fontFamily: 'Source Sans Pro',
-                                      fontSize: 18.0,
+                                    color: Color(0xFF737375),
+                                    fontFamily: 'Source Sans Pro',
+                                    fontSize: 18.0,
                                   ),
                                 ),
                               ),
@@ -126,14 +138,6 @@ void main() {
                           ),
                         ),
                       ),
-                      /*Expanded(
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: ListTile(
-                            title: Text('18%'),
-                          ),
-                        ),
-                      ),*/
                       Expanded(
                         child: Align(
                           alignment: Alignment.bottomCenter,
@@ -152,18 +156,6 @@ void main() {
                           ),
                         ),
                       ),
-                      /*Expanded(
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Container(
-                            child: Icon(
-                              Icons.keyboard_arrow_up,
-                              color: Color(0xFF707070),
-                              size: 30.0,
-                            ),
-                          ),
-                        ),
-                      ),*/
                     ],
                   ),
                 ),
@@ -182,8 +174,6 @@ void main() {
           ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }
-
-void setState(Null Function() param0) {}
