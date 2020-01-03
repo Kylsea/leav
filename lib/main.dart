@@ -26,8 +26,8 @@ class _MainState extends State<Main> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color(0xFF44BBAB),
-                  Color(0xFF62CA9B),
+                  Colors.black,
+                  Colors.white,
                 ],
               ),
             ),
@@ -62,7 +62,7 @@ class _MainState extends State<Main> {
                               fontSize: 60.0,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Source Sans Pro',
-                              color: Color(0xFF01B189),
+                              color: Color(0xFF303f9f),
                             ),
                           ),
                         ),
@@ -71,7 +71,7 @@ class _MainState extends State<Main> {
                         width: 150.0,
                         height: 150.0,
                         child: FloatingActionButton(
-                          splashColor: Color.fromRGBO(255, 255, 255, 0),
+                          //splashColor: Color.fromRGBO(255, 255, 255, 0),
                           child: SizedBox(
                             width: 75.0,
                             child: Icon(
@@ -97,7 +97,7 @@ class _MainState extends State<Main> {
                                   style: TextStyle(
                                     fontSize: 22.0,
                                     fontFamily: 'Source Sans Pro',
-                                    color: Color(0xFF737375),
+                                    color: Color(0xFF545454),
                                   ),
                                 ),
                               ),
@@ -108,8 +108,9 @@ class _MainState extends State<Main> {
                                 child: SliderTheme(
                                   data: SliderThemeData(
                                     trackHeight: 10.0,
-                                    activeTrackColor: Color(0xFF00C598),
-                                    inactiveTrackColor: Color(0xFFB2EDDF),
+                                    activeTrackColor: Color(0xFF0d47a1),
+                                    inactiveTrackColor: Color(0xFFbbdefb),
+                                    thumbColor: Color(0xFF0d47a1),
                                   ),
                                   child: Slider(
                                     value: _sliderValue.roundToDouble(),
