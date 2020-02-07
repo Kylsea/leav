@@ -1,8 +1,7 @@
 # Leav
 
-Built with Flutter.
+Built with .
 
 ## Getting Started
 
-- Trello Board
-https://trello.com/leavboard
+- ClickUp
