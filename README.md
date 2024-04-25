@@ -1,7 +1,3 @@
 # Leav
 
-Built with .
-
-## Getting Started
-
-- ClickUp
+Experimental project for leav.co company
